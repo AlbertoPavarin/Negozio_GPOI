@@ -33,6 +33,12 @@ class ProductOrder
         return self::$conn->query($sql);
     }
 
+    /*
+    {
+        "order": 1,
+        "product": 1
+    }
+    */
     public static function setProductOrder($prod, $ord)
     {
         $sql = "INSERT INTO product_order (product, `order`)

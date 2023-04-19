@@ -72,6 +72,13 @@ class Product
         return $stmt->execute();
     } 
 
+    /*{
+        "description": "Sapone per vetri",
+        "quantity": 10,
+        "price": 5,
+        "name": "Vetril",
+        "id": 1
+    }*/
     public static function updateProduct($description, $quantity, $price, $name, $id) 
     {
         $sql = "UPDATE product
@@ -90,6 +97,9 @@ class Product
             return "";
     }
 
+    /*{
+        "id":1
+    }*/
     public static function deleteProduct($id)
     {
         $sql = "UPDATE product
@@ -105,6 +115,9 @@ class Product
             return "";
     }
 
+    /*{
+        "id":1
+    }*/
     public static function reactiveProduct($id)
     {
         $sql = "UPDATE product

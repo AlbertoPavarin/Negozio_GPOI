@@ -33,6 +33,9 @@ class Status
         return self::$conn->query($sql);
     }
 
+    /*{
+        "description": "a"
+    }*/
     public static function setStatus($desc)
     {
         $sql = "INSERT INTO status (description)
@@ -43,6 +46,10 @@ class Status
         return $stmt->execute();
     }
 
+    /*{
+        "description": "a",
+        "id": 1
+    }*/
     public static function updateStatus($desc, $id)
     {
         $sql = "UPDATE status
