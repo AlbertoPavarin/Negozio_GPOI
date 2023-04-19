@@ -84,14 +84,10 @@ class Product
 
         $stmt = self::$conn->prepare($sql);
         $stmt->bind_param('sidsi', $description, $quantity, $price, $name, $id);
-        if ($stmt->execute())
-        {
+        if ($stmt->execute() && $stmt->affected_rows > 0)
             return $stmt;
-        }
         else
-        {
             return "";
-        }
     }
 
     public static function deleteProduct($id)
@@ -103,14 +99,10 @@ class Product
         
         $stmt = self::$conn->prepare($sql);
         $stmt->bind_param('i', $id);
-        if ($stmt->execute())
-        {
+        if ($stmt->execute() && $stmt->affected_rows > 0)
             return $stmt;
-        }
         else
-        {
             return "";
-        }
     }
 
     public static function reactiveProduct($id)
@@ -122,7 +114,7 @@ class Product
 
         $stmt = self::$conn->prepare($sql);
         $stmt->bind_param('i', $id);
-        if ($stmt->execute())
+        if ($stmt->execute() && $stmt->affected_rows > 0)
             return $stmt;
         else
             return "";

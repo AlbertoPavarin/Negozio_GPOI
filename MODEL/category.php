@@ -53,13 +53,9 @@ class Category
         
         $stmt = self::$conn->prepare($sql);
         $stmt->bind_param('ssi', $name, $description, $id);
-        if ($stmt->execute())
-        {
+        if ($stmt->execute() && $stmt->affected_rows > 0)
             return $stmt;
-        }
         else
-        {
             return "";
-        }
     }
 }
