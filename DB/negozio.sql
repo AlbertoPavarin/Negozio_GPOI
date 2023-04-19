@@ -48,6 +48,7 @@ CREATE TABLE cart(
 CREATE TABLE `order`(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	date_order DATETIME DEFAULT NOW(),
+	`user` INT NOT NULL, -- fk
 	status INT NOT NULL -- fk
 );
 
@@ -56,6 +57,39 @@ CREATE TABLE product_order (
 	`order` INT NOT NULL -- fk
 );
 
+CREATE TABLE status(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	description nvarchar(16) NOT NULL
+);
+
+ALTER TABLE `user`
+ADD CONSTRAINT fk_user_role FOREIGN KEY (`role`) REFERENCES `role`(id);
 
 
+ALTER TABLE category_product
+ADD CONSTRAINT fk_category_p FOREIGN KEY (category) REFERENCES category(id);
 
+ALTER TABLE category_product
+ADD CONSTRAINT fk_product_c FOREIGN KEY (product) REFERENCES product(id);
+
+ALTER TABLE cart
+ADD CONSTRAINT fk_cart_user FOREIGN KEY (`user`) REFERENCES `user`(id);
+ALTER TABLE cart
+ADD CONSTRAINT fk_cart_prod FOREIGN KEY (product) REFERENCES product(id);
+
+ALTER TABLE `order`
+ADD CONSTRAINT fk_order_s FOREIGN KEY (status) REFERENCES status(id);
+
+ALTER TABLE `order`
+ADD CONSTRAINT fk_order_u FOREIGN KEY (`user`) REFERENCES `user`(id);
+ 
+ALTER TABLE product_order 
+ADD CONSTRAINT fk_product_o FOREIGN KEY (product) REFERENCES product(id);
+ALTER TABLE product_order 
+ADD CONSTRAINT fk_order_p FOREIGN KEY (`order`) REFERENCES `order`(id);
+
+ALTER TABLE product_order 
+ADD CONSTRAINT pk_product_order PRIMARY KEY (product, `order`);
+
+ALTER TABLE cart 
+ADD CONSTRAINT pk_cart PRIMARY KEY (product, `user`);
