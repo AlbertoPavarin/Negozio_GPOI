@@ -33,6 +33,12 @@ class Category
         return self::$conn->query($sql);
     }
 
+    /*
+    {
+        "name": "a",
+        "description": "b"
+    }
+    */
     public static function setCategory($name, $descrption)
     {
         $sql = "INSERT INTO category (name, description)
@@ -43,6 +49,13 @@ class Category
         return $stmt->execute();
     }
 
+    /*
+    {
+        "name": "a",
+        "description": "b",
+        "id": 1
+    }
+    */
     public static function updateCategory($description, $name, $id)
     {
         $sql = "UPDATE category
