@@ -27,4 +27,4 @@ INSERT INTO `order` (`user`, status)
 VALUES (1, 1);
 
 INSERT INTO product_order (product, `order`)
-VALUES (1, 2);
+VALUES (1, 1);
