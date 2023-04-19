@@ -113,9 +113,19 @@ class Product
         }
     }
 
-    public static function reactiveProduct()
+    public static function reactiveProduct($id)
     {
-        
+        $sql = "UPDATE product
+                SET
+                    active = 1
+                WHERE id = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('i', $id);
+        if ($stmt->execute())
+            return $stmt;
+        else
+            return "";
     }
 }
 ?>
