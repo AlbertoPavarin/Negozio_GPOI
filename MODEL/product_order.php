@@ -32,4 +32,14 @@ class ProductOrder
 
         return self::$conn->query($sql);
     }
+
+    public static function setProductOrder($prod, $ord)
+    {
+        $sql = "INSERT INTO product_order (product, `order`)
+                VALUES (?, ?);";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('ii', $prod, $ord);
+        return $stmt->execute();
+    }
 }
