@@ -137,7 +137,7 @@ class Product
     {
         $sql = "UPDATE product
                 SET
-                    quantity = (SELECT quantity FROM product WHERE id = ? ) + ?
+                    quantity = (SELECT quantity WHERE id = ? ) - ?
                 WHERE id = ?;";
 
         $stmt = self::$conn->prepare($sql);
@@ -148,9 +148,26 @@ class Product
             return "";
     }
 
+    /*
+    {
+        "id": 1,
+        "quantity": 2
+    }
+    */
+
     public static function addProductQuantity($id, $amount)
     {
-        return 0;
+        $sql = "UPDATE product
+                SET
+                    quantity = (SELECT quantity WHERE id = ? ) + ?
+                WHERE id = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('iii', $id, $amount, $id);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
     }
 }
 ?>
