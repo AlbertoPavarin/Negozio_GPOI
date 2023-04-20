@@ -26,5 +26,5 @@ VALUES ("ordinato");
 INSERT INTO `order` (`user`, status)
 VALUES (1, 1);
 
-INSERT INTO product_order (product, `order`)
-VALUES (1, 1);
+INSERT INTO product_order (product, `order`, quantity)
+VALUES (1, 1, 2);

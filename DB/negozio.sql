@@ -54,7 +54,8 @@ CREATE TABLE `order`(
 
 CREATE TABLE product_order (
 	product INT NOT NULL, -- fk,
-	`order` INT NOT NULL -- fk
+	`order` INT NOT NULL, -- fk
+	quantity INT NOT NULL
 );
 
 CREATE TABLE status(

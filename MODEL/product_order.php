@@ -1,5 +1,5 @@
 <?php
-require("../../COMMON/connect.php");
+include_once("../../COMMON/connect.php");
 class ProductOrder 
 {
     protected static $prod_ord = false;
@@ -33,19 +33,16 @@ class ProductOrder
         return self::$conn->query($sql);
     }
 
-    /*
+    public static function setProductOrder($prods, $ord)
     {
-        "order": 1,
-        "product": 1
-    }
-    */
-    public static function setProductOrder($prod, $ord)
-    {
-        $sql = "INSERT INTO product_order (product, `order`)
-                VALUES (?, ?);";
-
+        $sql = "INSERT INTO product_order (product, `order`, quantity)
+                VALUES (?, ?, ?);";
         $stmt = self::$conn->prepare($sql);
-        $stmt->bind_param('ii', $prod, $ord);
-        return $stmt->execute();
+
+        foreach($prods as $prod)
+        {
+            $stmt->bind_param('iii', $prod->id, $ord, $prod->quantity);
+            $stmt->execute();
+        }
     }
 }

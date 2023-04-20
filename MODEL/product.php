@@ -132,5 +132,25 @@ class Product
         else
             return "";
     }
+
+    public static function subtractProductQuantity($id, $amount)
+    {
+        $sql = "UPDATE product
+                SET
+                    quantity = (SELECT quantity FROM product WHERE id = ? ) + ?
+                WHERE id = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('iii', $id, $amount, $id);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
+    }
+
+    public static function addProductQuantity($id, $amount)
+    {
+        return 0;
+    }
 }
 ?>

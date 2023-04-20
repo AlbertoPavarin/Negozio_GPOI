@@ -40,13 +40,46 @@ class Order
         return self::$conn->query($sql);
     }
 
+    /*
+    {
+        "user": 1,
+        "products": [
+            {"id": 1, "quantity": 2},
+            {"id": 2, "quantity": 1}
+        ]
+    }
+    */
     public static function setOrder($user)
     {
-        return 0;
+        $sql = "INSERT INTO `order` (user, status)
+                VALUES (?, 1);";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('i', $user);
+        if ($stmt->execute())
+            return $stmt;
+        else 
+            return "";
     }
 
-    public static function updateOrderStatus()
+    /*
     {
-        return 0;
+        "id": 1,
+        "status": 2
+    }
+    */
+    public static function updateOrderStatus($id, $status)
+    {
+        $sql = "UPDATE `order`
+                SET 
+                    status = ?
+                WHERE id = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('ii', $status, $id);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
     }
 }
