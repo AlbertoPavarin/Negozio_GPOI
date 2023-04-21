@@ -45,4 +45,60 @@ class Cart
         $stmt->bind_param('iii', $id_user, $id_prod, $quantity);
         return $stmt->execute();
     }
+
+    public static function addCartProductQuantity($id_user, $id_prod, $quantity)
+    {
+        $sql = "UPDATE cart
+                SET 
+                    quantity = (SELECT quantity WHERE product = ? AND user = ? ) + ?
+                WHERE product = ? AND user = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('iiiii', $id_prod, $id_user, $quantity, $id_prod, $id_user);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
+    }
+
+    public static function subtractCartProductQuantity($id_user, $id_prod, $quantity)
+    {
+        $sql = "UPDATE cart
+                SET 
+                    quantity = (SELECT quantity WHERE product = ? AND user = ? ) - ?
+                WHERE product = ? AND user = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('iiiii', $id_prod, $id_user, $quantity, $id_prod, $id_user);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
+    }
+
+    public static function deleteCartProduct($id_user, $id_prod)
+    {
+        $sql = "DELETE FROM cart
+                WHERE product = ? AND user = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('ii', $id_prod, $id_user);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
+    }
+
+    public static function deleteUserCart($id_user)
+    {
+        $sql = "DELETE FROM cart
+                WHERE user = ?;";
+
+        $stmt = self::$conn->prepare($sql);
+        $stmt->bind_param('i', $id_user);
+        if ($stmt->execute() && $stmt->affected_rows > 0)
+            return $stmt;
+        else
+            return "";
+    }
 }
