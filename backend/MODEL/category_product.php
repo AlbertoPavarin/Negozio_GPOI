@@ -2,7 +2,7 @@
 require("../../COMMON/connect.php");
 class CategoryProduct 
 {
-    protected static $category = false;
+    protected static $category_product = false;
     protected static $conn;
 
     protected function __construct() {
@@ -11,12 +11,12 @@ class CategoryProduct
 
     public static function getInstance()
     {
-        if (!self::$category)
+        if (!self::$category_product)
         {
-            self::$category = new static();
-            return self::$category;
+            self::$category_product = new static();
+            return self::$category_product;
         }
-        return self::$category;
+        return self::$category_product;
     }
 
     public static function getArchiveProductsCategories()

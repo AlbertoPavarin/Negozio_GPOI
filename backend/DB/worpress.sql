@@ -584,7 +584,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'admin', '$P$BwgSne.RLgrA8Uim0eVnK4MjtWssAD/', 'admin', 'alessiomodo2004@gmail.com', 'http://localhost/prenotazioni', '2023-02-09 08:55:28', '', 0, 'admin'),
+(1, 'admin', '$P$BaDES/5GkhqkmPZ7aiS0wtUjwZcJC30', 'admin', 'albertopavarin05@gmail.com', 'https://localhost/Negozio_GPOI', '2023-02-09 08:55:28', '', 0, 'admin'),
 (4, 'test', '$P$BVw6fYavIU96YAPB2az8N.hTo11/w1/', 'test', 'test@gmail.com', '', '2023-03-25 10:55:09', '', 0, 'Nome Cognome');
 
 --
