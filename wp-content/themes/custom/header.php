@@ -10,7 +10,7 @@ incluso in ogni pagina del sito, quindi è possibile utilizzarlo per creare un'i
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Prenotazioni</title>
+    <title>Negozio</title>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery-3.6.4.min.js">
     </script>
     <link href="<?php echo get_template_directory_uri(); ?>/style.css" rel="stylesheet" type="text/css">

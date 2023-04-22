@@ -30,7 +30,6 @@
 function load_stylesheets()
 {
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . "/css/Bootstrap/bootstrap.min.css", array(), '5.2.3', 'all');
-	wp_enqueue_style('dataTables', get_template_directory_uri() . "/css/DataTables/dataTables.bootstrap5.min.css", array(), '5.2.3', 'all');
 	wp_enqueue_style('responsive', get_template_directory_uri() . "/css/Responsive/responsive.bootstrap5.min.css", array(), '5.2.3', 'all');
 	wp_enqueue_style('select', get_template_directory_uri() . "/css/Select/select.bootstrap5.min.css", array(), '1.5.0', 'all');
 	wp_enqueue_style('buttons', get_template_directory_uri() . "/css/Buttons/buttons.bootstrap5.min.css", array(), '1.5.0', 'all');
