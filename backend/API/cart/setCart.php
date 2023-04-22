@@ -28,6 +28,7 @@ if ($cart->setCart($data->user, $data->product, $data->quantity))
 }
 else
 {
+    http_response_code(400);
     echo json_encode(array("Message" => "Error", "Response" => false));
     die();
 }

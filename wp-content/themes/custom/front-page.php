@@ -32,7 +32,6 @@ $user = wp_get_current_user();
     <h1>Categorie</h1>
     <script>
         categories = getActiveCategories();
-        console.log(categories);
         if (categories == "404")
             document.querySelector('.cat-cont').innerHTML = "Nessuna categoria";
     </script>

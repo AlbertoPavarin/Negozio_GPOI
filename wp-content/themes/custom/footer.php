@@ -14,12 +14,6 @@ wp_footer();
 ?>
 
 </body>
-<footer class="footer mt-auto py-3 bg-white">
-    <div class="container-fluid">
-        <span class="text-muted span-footer">
-            Negozio - Copyright © 2023 
-        </span>
-    </div>
-</footer>
+
 
 </html>

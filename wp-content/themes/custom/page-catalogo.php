@@ -11,7 +11,6 @@ if (empty($_GET["id"]))
 
 <script>
     let products = getActiveProductsByCategory(<?php echo $_GET["id"] ?>);
-    console.log(products);
 </script>
 
 <div class="container">
@@ -23,6 +22,9 @@ if (empty($_GET["id"]))
                 catDiv.classList = "col-md-5 product-container mt-3 mb-4 p-3";
                 catDiv.innerHTML = `<a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
                                     <p>${product.price}€</p>`;
+                catDiv.onclick = () => {
+                    location.href = `/Negozio_GPOI/prodotto?id=${product.id}`;
+                };
                 document.querySelector('.prods-cont').appendChild(catDiv);
                 if (i % 2 == 0) {
                     const catDivc = document.createElement('div');

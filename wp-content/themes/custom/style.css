@@ -71,3 +71,8 @@ footer {
 .product-container {
     height: 100%;
 }
+
+.img-prod{
+    width: 150px;
+    height: 150px;
+}
