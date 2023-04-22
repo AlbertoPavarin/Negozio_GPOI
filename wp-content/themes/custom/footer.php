@@ -17,7 +17,7 @@ wp_footer();
 <footer class="footer mt-auto py-3 bg-white">
     <div class="container-fluid">
         <span class="text-muted span-footer">
-            <a class="a-itis" href="https://iisviolamarchesini.edu.it">IIS Viola Marchesini</a> - Copyright © 2023 Prenotazioni
+            Negozio - Copyright © 2023 
         </span>
     </div>
 </footer>

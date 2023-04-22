@@ -1,12 +1,12 @@
 /*
-Theme Name: Prenotazioni IIS Viola Marchesini
-Author: M. Gallinaro, A. Modonesi, A. Pavarin, E. Toso, M. Zanini
-Description: Tema del progetto prenotazioni scolastiche
+Theme Name: Progetto GPOI
+Author: A. Pavarin
+Description: Tema del progetto di GPOI
 Requires at least: 6.1
 Tested up to: 6.1
 Requires PHP: 7.4
 Version: 1.0
-Text Domain: prenotazioni
+Text Domain: negozio
 */
 
 body {
@@ -25,45 +25,4 @@ footer {
 
 .title {
     margin-bottom: 2.5vh;
-}
-
-.info-form {
-    margin-left: 3vw !important;
-}
-
-.info-card {
-    width: 350px;
-    min-height: 300px;
-}
-
-.info-card,
-.device-card {
-    padding: 20px;
-    border-radius: 25px !important;
-    display: flex;
-    flex-wrap: wrap;
-    display: grid;
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
-    transition: all 0.2s;
-
-}
-
-.info-card:hover,
-.device-card:hover {
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-    transform: scale(1.01);
-}
-
-.admin-btn {
-    margin-right: 1vw;
-}
-
-.a-itis {
-    color: black;
-    text-decoration: none;
-}
-
-.a-itis:hover {
-    font-weight: bold;
-    color: black;
 }

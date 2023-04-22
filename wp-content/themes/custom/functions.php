@@ -52,12 +52,6 @@ function load_js()
 	wp_enqueue_script('select', get_template_directory_uri() . "/js/Select/dataTables.select.min.js", array(), '1.5.0', true);
 	wp_enqueue_script('buttons_datatables', get_template_directory_uri() . "/js/Buttons/dataTables.buttons.min.js", array(), '2.3.6', true);
 	wp_enqueue_script('buttons', get_template_directory_uri() . "/js/Buttons/buttons.bootstrap5.min.js", array(), '2.3.6', true);
-	//wp_enqueue_script('getArchiveDevice', get_template_directory_uri() . "/js/Devices/getArchiveDevice.js", array(), '2.3.6', true);
-	//wp_enqueue_script('getDeviceByID', get_template_directory_uri() . "/js/Devices/getDeviceByID.js", array(), '2.3.6', true);
-	wp_enqueue_script('getArchiveReservation', get_template_directory_uri() . "/js/Devices/getArchiveReservation.js", array(), '2.3.6', true);
-	wp_enqueue_script('setReservation', get_template_directory_uri() . "/js/Devices/setReservation.js", array(), '2.3.6', true);
-	// wp_enqueue_script('getArchive', get_template_directory_uri() . "/js/Archive/getArchive.js", array(), '2.3.6', true);
-	// wp_enqueue_script('getReservationByID', get_template_directory_uri() . "/js/Archive/getReservationByID.js", array(), '2.3.6', true);
 }
 add_action('wp_enqueue_scripts', 'load_js');
 
@@ -91,7 +85,7 @@ function logout()
 	wp_redirect(home_url());
 	exit();
 }
-add_action('wp_logout', 'custom_logout');
+// add_action('wp_logout', 'custom_logout');
 
 
 /**
