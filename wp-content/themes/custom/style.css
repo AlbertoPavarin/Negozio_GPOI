@@ -76,3 +76,11 @@ footer {
     width: 150px;
     height: 150px;
 }
+
+.minus-btn{
+    margin-right: 30px;
+}
+
+.plus-btn{
+    margin-left: 30px;
+}
