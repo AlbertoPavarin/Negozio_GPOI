@@ -1,6 +1,6 @@
 function getUserCart(id) {
     let result = "";
-
+    
     $.ajax({
         url: `/Negozio_GPOI/backend/API/cart/getUserCart.php?user_id=${id}`,
         type: 'GET',
