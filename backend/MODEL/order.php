@@ -82,4 +82,11 @@ class Order
         else
             return "";
     }
+
+    public static function getArchiveOrdersByUser($user)
+    {
+        $sql = "SELECT * FROM `order` WHERE user = " . self::$conn->real_escape_string($user);
+
+        return self::$conn->query($sql);
+    }
 }
