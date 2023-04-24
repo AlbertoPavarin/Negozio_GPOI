@@ -28,7 +28,10 @@ class ProductOrder
 
     public static function getProductsByOrder($order_id)
     {
-        $sql = "SELECT * FROM product_order WHERE `order` = " . self::$conn->real_escape_string($order_id);
+        $sql = "SELECT p.id, p.nome, p.description, p.price * po.quantity as 'total_price', p.price, po.quantity
+                FROM product_order po
+                INNER JOIN product p ON p.id = po.product
+                WHERE `order` = " . self::$conn->real_escape_string($order_id);
 
         return self::$conn->query($sql);
     }
