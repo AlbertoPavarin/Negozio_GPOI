@@ -84,3 +84,11 @@ footer {
 .plus-btn{
     margin-left: 30px;
 }
+
+.minus-btn:hover{
+    cursor: pointer;
+}
+
+.plus-btn:hover{
+    cursor: pointer;
+}

@@ -28,7 +28,7 @@ class Cart
 
     public static function getUserCart($id_user)
     {
-        $sql = "SELECT c.user, p.id, p.nome, p.description, p.price * c.quantity as 'total_price', c.quantity
+        $sql = "SELECT c.user, p.id, p.nome, p.description, p.price * c.quantity as 'total_price', p.price, c.quantity
                 FROM cart c
                 INNER JOIN product p ON p.id = c.product
                 WHERE c.user = " . self::$conn->real_escape_string($id_user);

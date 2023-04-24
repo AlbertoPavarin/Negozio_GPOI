@@ -1,6 +1,6 @@
-function addCartProductQuantity(user, prod)
+function addCartProductQuantity(prod, user, price)
 {
-    // manca cambio valore quantità e prezzo nella pagina
+
     let res = "";
     $.ajax({
         url: `/Negozio_GPOI/backend/API/cart/addCartProductQuantity.php`,
@@ -15,7 +15,13 @@ function addCartProductQuantity(user, prod)
                 quantity: 1
             }),
         success: function (data) {
-            console.log(data);
+            console.log(price);
+            let quantity = document.querySelector(`#text-${prod}`);
+            quantity.innerHTML = parseFloat(quantity.innerHTML) + 1;
+
+            let pricePar = document.querySelector(`#price-${prod}`)
+            pricePar.innerHTML = (parseFloat(pricePar.innerHTML) + price).toFixed(2);
+            console.log(pricePar);
         },
         error: function (error) {
             res = "400";
