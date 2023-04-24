@@ -30,6 +30,7 @@ function setOrder(user)
             }),
         success: function (data) {
             console.log(data);
+            deleteUserCart(user);
         },
         error: function (error) {
             res = "400";

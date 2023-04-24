@@ -6,6 +6,7 @@ require_once('page.php');
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/addCartProductQuantity.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/subtractCartProductQuantity.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Order/setOrder.js"></script>
+<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/deleteUserCart.js"></script>
 
 <div class="container">
     <div class = "prods-cont">
@@ -20,6 +21,12 @@ require_once('page.php');
 
 <script>
     let products = getUserCart(<?php echo $user->id ?>);
+    if (products["Message"] == 'No record'){
+        document.querySelector('.prods-cont').innerHTML = "<h4>Nessun prodotto nel carrello</h4>";
+        $("#shop-btn").hide();
+        throw new Error("Nessun prodotto");
+    }
+
     products.forEach((product) => {
         const catDiv = document.createElement('div');
         catDiv.classList = "col-12 product-container mt-3 mb-4 p-3";
