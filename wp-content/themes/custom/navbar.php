@@ -25,6 +25,12 @@
                         <h6>Carrello</h6>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/ordini">
+                        <h6>Ordini</h6>
+                    </a>
+                </li>
             </ul>
 
             <a class="navbar-brand">Ciao, <?php echo $user->display_name; ?>!</a>
