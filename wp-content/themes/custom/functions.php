@@ -59,7 +59,8 @@ add_action('wp_enqueue_scripts', 'load_js');
  */
 function login_redirect()
 {
-	if (!is_user_logged_in()) {
+	$the_slug = get_post_field( 'post_name' );
+	if (!is_user_logged_in() && $the_slug != "registrazione") {
 		wp_redirect(wp_login_url());
 		exit();
 	}

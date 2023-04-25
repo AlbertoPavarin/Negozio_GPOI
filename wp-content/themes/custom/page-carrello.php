@@ -1,5 +1,6 @@
 <?php
 require_once('page.php');
+
 ?>
 
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/getUserCart.js"></script>

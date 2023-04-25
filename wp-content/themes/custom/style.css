@@ -92,3 +92,62 @@ footer {
 .plus-btn:hover{
     cursor: pointer;
 }
+
+.login {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 25px;
+    padding: 30px;
+  }
+
+.login input{
+  width: 80%;
+  box-sizing: border-box;
+	border: none;
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  box-shadow: inset 0px -3px 0px 0px rgba(100,100,100,0.2);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.login input:focus, .login input:hover{
+  box-shadow: inset 0px -3px 0px 0px rgba(34,193,195,0.7);
+   outline: none;
+}
+
+.login label{
+  align-self: start;
+  padding-bottom: 0.5rem;
+  color: rgba(150,150,150);
+  font-size: 20px;
+}
+
+.login input::-webkit-input-placeholder,
+.roregister input::-webkit-input-placeholder{
+  font-size: 22px;
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.login input:hover::-webkit-input-placeholder,
+.login input:focus::-webkit-input-placeholder{
+  opacity: 0;
+}
+
+.sub-btn,
+.login .sub-btn{
+  border-radius: 25px;
+  width: 80%;
+  height: 40px;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+  background: rgb(34,193,195);
+  background-color: #40434e;
+  border: 0px;
+  cursor: pointer;
+  transition: opacity 0.25s ease-out;
+}
