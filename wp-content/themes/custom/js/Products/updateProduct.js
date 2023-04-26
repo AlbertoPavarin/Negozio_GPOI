@@ -16,7 +16,7 @@ function updateProduct(id, name, description, price, quantity)
                 quantity: quantity
             }),
         success: function (data) {
-            console.log(data);
+            res = data;
         },
         error: function (error) {
             res = "400";
