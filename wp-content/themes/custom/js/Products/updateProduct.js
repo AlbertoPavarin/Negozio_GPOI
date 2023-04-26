@@ -1,7 +1,7 @@
 function updateProduct(id, name, description, price, quantity)
 {
     let res = "";
-    $.ajax({
+    /*$.ajax({
         url: `/Negozio_GPOI/backend/API/product/updateProduct.php`,
         type: 'POST',
         headers : {'Content-Type':'application/json; charset=utf-8'},
@@ -22,5 +22,5 @@ function updateProduct(id, name, description, price, quantity)
             res = "400";
         }
     });
-    return res;
+    return res;*/
 }

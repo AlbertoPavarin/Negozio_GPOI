@@ -73,9 +73,12 @@ endif;
                 <div class="justify-content-center insert-input mt-3">
                     <label for="description">Prezzo</label>
                     <input type="number" name="price" id="price" class="form-control">
-                </div>
+                </div><hr>
 
                 <p class="mt-3">Categorie</p>
+                <div id="cats-cont">
+
+                </div>
 
                 <input type="button" value="Modifica prodotto" id="update-prod" class="btn btn-primary mt-3 w-100">
 
@@ -97,22 +100,29 @@ endif;
     inputPrice.value = product.price;
 
     let categories = getActiveCategories();
-    console.log(categories);
+
+    categories.forEach((category) => {
+      let catDiv = document.createElement('div');
+      catDiv.classList = "col-12";
+      catDiv.innerHTML = `<input type="checkbox" id="check-dev" name="cat-sel" value="${category.id}">
+                          <label class="mb-3" for="dev">${category.description}</label>`;
+
+      document.querySelector('#cats-cont').appendChild(catDiv);
+    });
 
     let btnUpdate = document.querySelector('#update-prod');
     btnUpdate.onclick = () => {
+        let checks = document.querySelectorAll('input[name=cat-sel]:checked'); // prende i checkbox selezionati
+        console.log(checks);
         let response = updateProduct(product.id, inputName.value, inputDescription.value, inputPrice.value, product.quantity);
-        console.log(response);
         if (response["Response"] == false)
         {
             var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-            console.log(myModal);
             myModal.show();
         }
         else
         {
             var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-            console.log(myModal);
             myModal.show();
         }
 
