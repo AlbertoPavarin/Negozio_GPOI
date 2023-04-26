@@ -42,7 +42,7 @@ endif;
     if (order.status != 2)
         document.querySelector('.btn-cont').innerHTML = `<input type="submit" class="btn btn-primary btn-block col-12" value="Concludi" onclick='updateOrderStatus(<?php echo $_GET["id"] ?>, 2)'></input>`;
     else
-    document.querySelector('.btn-cont').innerHTML = `<h4>Ordine già concluso</h4>`;
+        document.querySelector('.btn-cont').innerHTML = `<h4>Ordine già concluso</h4>`;
 
     let products = getProductsByOrder(<?php echo $_GET["id"] ?>);
 

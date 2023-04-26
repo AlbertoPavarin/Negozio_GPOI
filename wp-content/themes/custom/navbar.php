@@ -31,7 +31,7 @@
 
             <?php if (isAdmin() == true) : ?>
                 <a class="btn btn-primary admin-btn" href="/Negozio_GPOI/wp-admin" role="button">Manage</a>
-                <a class="btn btn-primary admin-btn" href="/Negozio_GPOI/" role="button">Magazzino</a>
+                <a class="btn btn-primary admin-btn" href="/Negozio_GPOI/amministrazione-prodotti" role="button">Magazzino</a>
             <?php endif; ?>
 
             <button class="btn btn-danger logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>
