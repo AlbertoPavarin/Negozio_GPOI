@@ -15,7 +15,6 @@ function setOrder(user)
         products.push({"id": product.id, "quantity": product.quantity})
     });
 
-    console.log(JSON.stringify(products));
     let res = "";
     $.ajax({
         url: `/Negozio_GPOI/backend/API/order/setOrder.php`,

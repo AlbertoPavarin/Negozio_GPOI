@@ -15,12 +15,6 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/catalogo">
-                        <h6>Catalogo</h6>
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/carrello">
                         <h6>Carrello</h6>
                     </a>
@@ -37,6 +31,7 @@
 
             <?php if (isAdmin() == true) : ?>
                 <a class="btn btn-primary admin-btn" href="/Negozio_GPOI/wp-admin" role="button">Manage</a>
+                <a class="btn btn-primary admin-btn" href="/Negozio_GPOI/" role="button">Magazzino</a>
             <?php endif; ?>
 
             <button class="btn btn-danger logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>
