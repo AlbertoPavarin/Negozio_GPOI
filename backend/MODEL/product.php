@@ -69,7 +69,10 @@ class Product
 
         $stmt = self::$conn->prepare($sql);
         $stmt->bind_param('sids', $description, $quantity, $price, $name);
-        return $stmt->execute();
+        if ($stmt->execute())
+            return $stmt;
+        else
+            return "";
     } 
 
     /*{

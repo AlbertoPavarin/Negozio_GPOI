@@ -8,8 +8,8 @@ $data = json_decode(file_get_contents('php://input'));
 
 if (empty($data->product) || empty($data->category))
 {
-    http_response_code(400);
-    echo json_encode(["message" => "Fill every field"]);
+    /*http_response_code(400);
+    echo json_encode(["message" => "Fill every field"]);*/
     die();
 }
 

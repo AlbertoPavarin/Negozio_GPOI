@@ -21,9 +21,9 @@ if ($data->quantity <= 0 || $data->price <= 0)
 
 $product = Product::getInstance();
 
-if ($product->setProduct($data->description, $data->quantity, $data->price, $data->name))
+if ($res = $product->setProduct($data->description, $data->quantity, $data->price, $data->name))
 {
-    echo json_encode(array("Message" => "Product created", "Response" => true));
+    echo json_encode(array("Message" => "Product created", "product_id" => $res->insert_id, "Response" => true));
     die();
 }
 else

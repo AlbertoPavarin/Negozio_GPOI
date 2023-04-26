@@ -42,7 +42,7 @@ class CategoryProduct
                 VALUES (?, ?);";
 
         $stmt = self::$conn->prepare($sql);
-        $stmt->bind_param('ii', $product, $category);
+        $stmt->bind_param('ii', $category, $product);
         return $stmt->execute();
     }
 }

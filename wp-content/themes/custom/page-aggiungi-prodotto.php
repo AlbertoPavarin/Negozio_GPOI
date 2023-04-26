@@ -1,18 +1,12 @@
 <?php
 require_once('page.php');
 
-if (empty($_GET["id"]))
-{
-    die("Errore nel caricamento del prodotto");
-}
-
 if (!isAdmin()) :
     echo ('<script>
         location.href = "/Negozio_GPOI"
     </script>');
     die();
 endif;
-
 ?>
 
 <!-- Error Modal -->
@@ -24,7 +18,7 @@ endif;
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Errore nella modifica del prodotto
+        Errore nella creazione del prodotto
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -42,7 +36,7 @@ endif;
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Prodotto modificato
+        Prodotto aggiunto
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -51,8 +45,8 @@ endif;
   </div>
 </div>
 
-<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Products/getProduct.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/CategoryProduct/setCategoryProduct.js"></script>
+<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Products/setProduct.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Category/getActiveCategories.js"></script>
 
 <div class="container">
@@ -71,11 +65,19 @@ endif;
                 </div>
 
                 <div class="justify-content-center insert-input mt-3">
-                    <label for="description">Prezzo</label>
-                    <input type="number" min="0" name="price" id="price" class="form-control" onkeypress="return validateNumeber(event)">
+                    <label for="price">Prezzo</label>
+                    <input class="form-control" type="text" onkeypress="return validateNumber(event)" id="price" name="price">
                 </div><hr>
 
-                <input type="button" value="Modifica prodotto" id="update-prod" class="btn btn-primary mt-3 w-100">
+                <div class="justify-content-center insert-input mt-3">
+                    <label for="quantity">Quantità</label>
+                    <input class="form-control" type="text" onkeypress="return validateNumber(event)" id="quantity" name="quantity">
+                </div><hr>
+
+                <p class="col-12">Categorie</p>
+                <div class="cats-cont"></div>
+
+                <input type="button" value="Aggiungi prodotto" id="add-prod" class="btn btn-primary mt-3 w-100">
 
             </form>
         </div>
@@ -85,37 +87,48 @@ endif;
 <script>
     function validateNumber(event)
     {
-      console.log('c');
-      if (event.charCode > 31 && (event.charCode < 48 || event.charCode > 57))
+      if (event.charCode > 31 && (event.charCode < 49 || event.charCode > 57))
         return false;
       else
         return true;
     }
-    
-    let product = getProduct(<?php echo $_GET["id"] ?>);
-
     let inputName = document.querySelector('#name');
-    inputName.value = product.nome;
 
     let inputDescription = document.querySelector('#description');
-    inputDescription.value = product.description;
 
     let inputPrice = document.querySelector('#price');
-    inputPrice.value = product.price;
 
-    let btnUpdate = document.querySelector('#update-prod');
-    btnUpdate.onclick = () => {
-        let response = updateProduct(product.id, inputName.value, inputDescription.value, inputPrice.value, product.quantity);
-        if (response["Response"] == false)
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-            myModal.show();
-        }
-        else
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-            myModal.show();
-        }
+    let inputQuantity = document.querySelector('#quantity');
 
-    }
+    let categories = getActiveCategories();
+    
+    categories.forEach((category) => {
+    let catDiv = document.createElement('div');
+    catDiv.classList = "col-12";
+    catDiv.innerHTML = `<input type="checkbox" id="check-cont" name="prod-sel" value="${category.id}">
+                          <label class="mb-3" for="prod-sel">${category.description}</label><br>`;
+
+      document.querySelector('.cats-cont').appendChild(catDiv);
+    });
+
+    document.querySelector('#add-prod').onclick = () => {
+      let checks = document.querySelectorAll('input[name=prod-sel]:checked');
+
+      let response = setProduct(inputName.value, inputDescription.value, inputPrice.value, inputQuantity.value);
+      if (response == "400")
+      {
+          var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
+          myModal.show();
+      }
+      else
+      {
+        checks.forEach((check) => {
+            setCategoryProduct(response["product_id"], check.value);
+          });
+        
+          var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+          myModal.show();
+
+      }
+    };
 </script>

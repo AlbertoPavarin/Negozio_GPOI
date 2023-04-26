@@ -1,25 +1,24 @@
-function updateProduct(id, name, description, price, quantity)
+function setCategoryProduct(prod, cat)
 {
     let res = "";
     $.ajax({
-        url: `/Negozio_GPOI/backend/API/product/updateProduct.php`,
+        url: `/Negozio_GPOI/backend/API/category_product/setProductCategory.php`,
         type: 'POST',
         headers : {'Content-Type':'application/json; charset=utf-8'},
         dataType: 'json',
         async: false,
         data: 
            JSON.stringify({
-                id: id,
-                name: name,
-                description: description, 
-                price: price,
-                quantity: quantity
+                category: cat,
+                product: prod,
             }),
         success: function (data) {
             res = data;
+            console.log(data);
         },
         error: function (error) {
             res = "400";
+            console.log(error);
         }
     });
     return res;
