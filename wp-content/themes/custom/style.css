@@ -151,3 +151,20 @@ footer {
   cursor: pointer;
   transition: opacity 0.25s ease-out;
 }
+
+.manage-div{
+  margin-right: 10px;
+}
+
+.warehouse-div{
+  margin-right: 10px;
+}
+
+.img-cont{
+  width: 75px;
+  height: 75px;
+}
+
+.prod-container{
+  font-size: 10px;
+}

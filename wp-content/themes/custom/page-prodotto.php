@@ -69,7 +69,7 @@ if (empty($_GET["id"]))
     document.querySelector('.prod-container').appendChild(descDiv);
 
     const priceDiv = document.createElement('div');
-    priceDiv.innerHTML = `<h6>${product.price}€</h6><hr><h6>Quantity: ${product.quantity}</h6>`;
+    priceDiv.innerHTML = `<h6>${product.price}€</h6><hr><h6>Quantità: ${product.quantity}</h6>`;
     document.querySelector('.prod-container').appendChild(priceDiv);
 
     const amountDiv = document.createElement('div');
