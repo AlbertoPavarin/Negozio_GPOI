@@ -33,13 +33,19 @@ $user = wp_get_current_user();
             <div class="col-md-4 col-4 col-xl-4 col-12">
                 <h5>I più votati</h5>
                 <div class="prod-container col-5">
+                    SAPONI DA BUCATO - PER LAVAGGI A MANO
+                </div>
+                <div class="col-6">
+                    <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod" alt="">
+                    <hr>
+                </div>
+                <div class="prod-container col-5">
                     SAPONI DA BUCATO ALLA CENERE - PER LAVAGGI A MANO
                 </div>
                 <div class="col-6">
                     <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod" alt="">
                     <hr>
                 </div>
-
             </div>
         <script>
             categories = getActiveCategories();
