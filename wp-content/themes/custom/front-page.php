@@ -6,10 +6,13 @@ $user = wp_get_current_user();
 
 <div class="container-fluid">
     <?php require("navbar.php"); ?>
-    <br />
-    <br />
 </div>
 
+<div class="mb-4">
+    <div class="col-12 title-img d-flex align-items-center justify-content-center">
+        <h2 class="title">Categorie</h2>
+    </div>
+</div>
 <div class="container">
 
     <div class="row">
@@ -30,30 +33,12 @@ $user = wp_get_current_user();
     </div>
     <hr>
     <div class="row">
-            <div class="col-md-4 col-4 col-xl-4 col-12">
-                <h5>I più votati</h5>
-                <div class="prod-container col-5">
-                    SAPONI DA BUCATO - PER LAVAGGI A MANO
-                </div>
-                <div class="col-6">
-                    <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod" alt="">
-                    <hr>
-                </div>
-                <div class="prod-container col-5">
-                    SAPONI DA BUCATO ALLA CENERE - PER LAVAGGI A MANO
-                </div>
-                <div class="col-6">
-                    <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod" alt="">
-                    <hr>
-                </div>
-            </div>
         <script>
             categories = getActiveCategories();
             if (categories == "404")
                 document.querySelector('.cat-cont').innerHTML = "Nessuna categoria";
         </script>
-        <div class="row cats-cont col-8 col-md-8 col-xl-8 col-12">
-            <h1>Categorie</h1>
+        <div class="row cats-cont col-12 col-md-12 col-xl-12 col-12">
             <script>
                 categories.forEach((category) => {
                     const catDiv = document.createElement('div');

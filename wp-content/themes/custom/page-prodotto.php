@@ -54,7 +54,14 @@ if (empty($_GET["id"]))
         <div class="col-4 col-md-4 d-flex align-items-center">
             <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" alt="" srcset="" class="img-prod">
         </div>
-        <div class="col-12 col-md-5 d-flex align-items-center prod-name"></div>
+        <div class="col-12 col-md-8 col-lg-8 name-cart-prod mt-5">
+          <div class="prod-name"></div>
+          <div class="col-12 col-md-4 prod-price mt-4 mb-4"></div>
+          <div class="row">
+            <div class="col-12 col-md-4 prod-cart"></div>
+            <div class="col-12 col-md-8 cart-btn d-flex align-items-center ml-2 mt-3 mb-5"></div>
+          </div>
+        </div>
     </div>
 </div>
 
@@ -69,18 +76,22 @@ if (empty($_GET["id"]))
     document.querySelector('.prod-container').appendChild(descDiv);
 
     const priceDiv = document.createElement('div');
-    priceDiv.innerHTML = `<h6>${product.price}€</h6><hr><h6>Quantità: ${product.quantity}</h6>`;
-    document.querySelector('.prod-container').appendChild(priceDiv);
+    priceDiv.innerHTML = `<h6>${product.price}€</h6>`;
+    document.querySelector('.prod-price').appendChild(priceDiv);
+
+    const quantityDiv = document.createElement('div');
+    quantityDiv.innerHTML = `<h6>Quantità: ${product.quantity}</h6>`;
+    document.querySelector('.prod-container').appendChild(quantityDiv);
 
     const amountDiv = document.createElement('div');
     amountDiv.classList = "d-flex align-items-center justify-content-center mt-4"
     amountDiv.innerHTML = `<div id="minus-btn-${product.id}" class="col-4 d-flex justify-content-center align-items-center minus-btn" onclick=deleteItem(${product.id})>-</div>
                            <div id="text-${product.id}" class="col-4 d-flex justify-content-center align-items-center">1</div>
                            <div id="plus-btn-${product.id}" class="col-4 pr-2 d-flex justify-content-center align-items-center plus-btn" onclick="addItem(${product.id}, ${product.quantity})">+</div>`;
-    document.querySelector('.prod-container').appendChild(amountDiv);
+    document.querySelector('.prod-cart').appendChild(amountDiv);
 
     const cartBtn = document.createElement('button');
-    cartBtn.classList = "btn btn-secondary mt-3";
+    cartBtn.classList = "btn btn-secondary";
     cartBtn.innerHTML = `Aggiungi al carrello`;
     cartBtn.onclick = () => {
         res = setCart(<?php echo $user->id ?>, product.id);
@@ -97,5 +108,5 @@ if (empty($_GET["id"]))
             myModal.show();
         }
     }
-    document.querySelector('.prod-container').appendChild(cartBtn);
+    document.querySelector('.cart-btn').appendChild(cartBtn);
 </script>
