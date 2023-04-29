@@ -86,12 +86,12 @@ if (empty($_GET["id"]))
     const amountDiv = document.createElement('div');
     amountDiv.classList = "d-flex align-items-center justify-content-center mt-4"
     amountDiv.innerHTML = `<div id="minus-btn-${product.id}" class="col-4 d-flex justify-content-center align-items-center minus-btn" onclick=deleteItem(${product.id})>-</div>
-                           <div id="text-${product.id}" class="col-4 d-flex justify-content-center align-items-center">1</div>
+                           <div id="text-${product.id}" class="col-4 d-flex justify-content-center align-items-center quant-cont">1</div>
                            <div id="plus-btn-${product.id}" class="col-4 pr-2 d-flex justify-content-center align-items-center plus-btn" onclick="addItem(${product.id}, ${product.quantity})">+</div>`;
     document.querySelector('.prod-cart').appendChild(amountDiv);
 
     const cartBtn = document.createElement('button');
-    cartBtn.classList = "btn btn-secondary";
+    cartBtn.classList = "btn col-12 col-md-6 cart-prod-btn";
     cartBtn.innerHTML = `Aggiungi al carrello`;
     cartBtn.onclick = () => {
         res = setCart(<?php echo $user->id ?>, product.id);

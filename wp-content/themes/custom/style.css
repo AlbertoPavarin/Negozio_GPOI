@@ -196,3 +196,19 @@ div{
   font-size: 70px;
   font-family: 'Italianno';
 }
+
+.prod-price{
+  color: #964B00;
+}
+
+.quant-cont
+{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #964B00;
+}
+
+.cart-prod-btn{
+  background-color: #964B00 !important;
+  color: #FFF !important;
+}
