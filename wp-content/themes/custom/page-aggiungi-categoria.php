@@ -45,9 +45,7 @@ endif;
   </div>
 </div>
 
-<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/CategoryProduct/setCategoryProduct.js"></script>
-<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Products/setProduct.js"></script>
-<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Category/getActiveCategories.js"></script>
+<script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Category/setCategory.js"></script>
 
 <div class="container">
     <div class="row justify-content-center text-center">
@@ -75,7 +73,6 @@ endif;
     let inputName = document.querySelector('#name');
 
     let inputDescription = document.querySelector('#description');
-
     document.querySelector('#add-cat').onclick = () => {
       let response = setCategory(inputName.value, inputDescription.value);
       if (response == "400")

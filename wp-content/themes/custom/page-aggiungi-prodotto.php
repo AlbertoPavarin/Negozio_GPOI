@@ -106,7 +106,7 @@ endif;
     let catDiv = document.createElement('div');
     catDiv.classList = "col-12";
     catDiv.innerHTML = `<input type="checkbox" id="check-cont" name="prod-sel" value="${category.id}">
-                          <label class="mb-3" for="prod-sel">${category.description}</label><br>`;
+                          <label class="mb-3" for="prod-sel">${category.name}</label><br>`;
 
       document.querySelector('.cats-cont').appendChild(catDiv);
     });

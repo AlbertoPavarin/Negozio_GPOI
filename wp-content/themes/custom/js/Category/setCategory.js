@@ -1,4 +1,4 @@
-function setProduct(name, desc)
+function setCategory(name, desc)
 {
     let res = "";
     $.ajax({
