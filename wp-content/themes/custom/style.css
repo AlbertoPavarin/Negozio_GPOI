@@ -212,3 +212,14 @@ div{
   background-color: #964B00 !important;
   color: #FFF !important;
 }
+
+.cart-img-prod{
+  height: 100px;
+  width: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .info-cart{
+    visibility: hidden;
+  }
+}

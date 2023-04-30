@@ -29,7 +29,18 @@ require_once('page.php');
 
 <div class="container">
     <div class = "prods-cont">
-
+        <div class="row info-cart">
+            <div class="col-6 text-center">
+                <h5>Prodotto</h5>
+            </div>
+            <div class="col-3 text-center">
+                <h5>Prezzo</h5>
+            </div>
+            <div class="col-3 text-center">
+                <h5>Quantità</h5>
+            </div>
+        </div>
+        <hr>
     </div>
     <div class="row">
         <div class="col-12">
@@ -48,18 +59,21 @@ require_once('page.php');
 
     products.forEach((product) => {
         const catDiv = document.createElement('div');
-        catDiv.classList = "col-12 product-container mt-3 mb-4 p-3";
-        catDiv.innerHTML = `<div class="p-cont" onclick=changeLocation(${product.id})>
-                                <a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
-                                <div>
+        catDiv.innerHTML = `<div class="row product-container mt-3 mb-4 p-3">
+                                <div class="p-cont col-12 col-md-6" onclick=changeLocation(${product.id})>
+                                    <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="cart-img-prod" alt="">
+                                    <a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
+                                </div>
+                                <div class="col-12 col-md-3 mt-4">
                                     <span id="price-${product.id}">${product.total_price}</span>€
                                 </div>
+                                <div class="prod col-12 col-md-3 mt-4">
+                                    <span id="minus-btn-${product.id}" class="minus-btn" onclick="subtractCartProductQuantity(${product.id}, <?php echo $user->id ?>, ${product.price})">-</span>
+                                    <span id="text-${product.id}" class="quant-cont p-1">${product.quantity}</span>
+                                    <span id="plus-btn-${product.id}" class="plus-btn" onclick="addCartProductQuantity(${product.id}, <?php echo $user->id ?>, ${product.price})">+</span>
+                                </div>
                             </div>
-                            <div class="p-2 prod">
-                                <span id="minus-btn-${product.id}" class="minus-btn" onclick="subtractCartProductQuantity(${product.id}, <?php echo $user->id ?>, ${product.price})">-</span>
-                                <span id="text-${product.id}" class="">${product.quantity}</span>
-                                <span id="plus-btn-${product.id}" class="plus-btn" onclick="addCartProductQuantity(${product.id}, <?php echo $user->id ?>, ${product.price})">+</span>
-                            </div>`;
+                            <hr>`;
         document.querySelector('.prods-cont').appendChild(catDiv);
     });
 
