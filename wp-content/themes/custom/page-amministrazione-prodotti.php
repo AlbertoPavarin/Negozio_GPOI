@@ -22,7 +22,7 @@ endif;
 
     products.forEach((product) => {
         const prodDiv = document.createElement('div');
-        prodDiv.classList = 'col-12 product-container mt-3 mb-4 p-3';
+        prodDiv.classList = 'col-12 ad-prod-cont mt-3 mb-4 p-3';
         prodDiv.innerHTML = `<div class="p-cont">
                                     <a class="a-cat" href="/Negozio_GPOI/modifica-prodotto?id=${product.id}">${product.nome}</a>
                                     <div>

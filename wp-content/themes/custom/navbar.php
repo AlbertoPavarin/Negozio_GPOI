@@ -26,13 +26,34 @@
                         <h6>Carrello</h6>
                     </a>
                 </li>
+                <?php if (isAdmin() == true) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/aggiungi-prodotto">
+                            <h6>Aggiungi prodotto</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/aggiungi-categoria">
+                            <h6>Aggiungi categoria</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/amministrazione-prodotti">
+                            <h6>Gestione Prodotti</h6>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Negozio_GPOI/ordini-totali">
+                            <h6>Gestione Ordini</h6>
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
 
             <a class="navbar-brand">Ciao, <?php echo $user->display_name; ?>!</a>
 
             <?php if (isAdmin() == true) : ?>
                 <div class="manage-div"><a class="btn btn-primary admin-btn" href="/Negozio_GPOI/wp-admin" role="button">Amministrazione</a></div>
-                <div class="warehouse-div"><a class="btn btn-primary admin-btn" href="/Negozio_GPOI/amministrazione-prodotti" role="button">Magazzino</a></div>
             <?php endif; ?>
 
             <button class="btn btn-danger logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>

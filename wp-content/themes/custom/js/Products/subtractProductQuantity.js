@@ -1,6 +1,7 @@
 function subtractProductQuantity(id, quantity)
 {
-    if (quantity.innerHTML > 1)
+    const text = document.querySelector(`#text-${id}`);
+    if (text.innerHTML > 1)
     {
         let res = "";
         $.ajax({
@@ -16,9 +17,7 @@ function subtractProductQuantity(id, quantity)
                 }),
             success: function (data) {
                 res = data;
-                const text = document.querySelector(`#text-${id}`);
-                if (text.innerHTML > 1)
-                    text.innerHTML -= parseInt(quantity);
+                text.innerHTML -= parseInt(quantity);
             },
             error: function (error) {
                 res = "400";

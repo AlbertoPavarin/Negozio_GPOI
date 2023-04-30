@@ -57,7 +57,7 @@ div{
   font-family: 'Asar';
 }
 
-.category-container{
+.category-container, .ad-prod-cont, .order-container{
     font-family: 'Asar';
     border-style: solid;
     border-width: 1px;
