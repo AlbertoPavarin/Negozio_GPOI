@@ -11,25 +11,66 @@ function setOrder(user)
 {
     cart = getUserCart(user);
     let products = [];
+    let check = false;
     cart.forEach(product => {
+        if (product.quantity > product.prod_quantity)
+        {
+            check = true;
+            return "";
+        }
         products.push({"id": product.id, "quantity": product.quantity})
     });
 
     let res = "";
+    if (!check)
+    {
+        $.ajax({
+            url: `/Negozio_GPOI/backend/API/order/setOrder.php`,
+            type: 'POST',
+            headers : {'Content-Type':'application/json; charset=utf-8'},
+            dataType: 'json',
+            async: false,
+            data: 
+               JSON.stringify({
+                    user: user,
+                    products: products
+                }),
+            success: function (data) {
+                console.log(data);
+                cart.forEach(product => {
+                    if (product.quantity <= product.prod_quantity)
+                    {
+                        subtractProductQuantity(product.id, product.quantity)
+                    }
+                });
+                deleteUserCart(user);
+                res = data;
+            },
+            error: function (error) {
+                res = "400";
+            }
+        });
+    }
+    return res;
+}
+
+function subtractProductQuantity(id, quantity)
+{
+    let res = "";
     $.ajax({
-        url: `/Negozio_GPOI/backend/API/order/setOrder.php`,
+        url: `/Negozio_GPOI/backend/API/product/subtractProductQuantity.php`,
         type: 'POST',
         headers : {'Content-Type':'application/json; charset=utf-8'},
         dataType: 'json',
         async: false,
         data: 
            JSON.stringify({
-                user: user,
-                products: products
+                id: id,
+                quantity: quantity
             }),
         success: function (data) {
-            console.log(data);
-            deleteUserCart(user);
+            res = data;
+            text.innerHTML -= parseInt(quantity);
         },
         error: function (error) {
             res = "400";

@@ -3,6 +3,24 @@ require_once('page.php');
 
 ?>
 
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Errore</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Prodotto non disponibile
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/getUserCart.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/addCartProductQuantity.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/subtractCartProductQuantity.js"></script>
@@ -46,7 +64,11 @@ require_once('page.php');
     });
 
     document.querySelector('#shop-btn').onclick = () => {
-        setOrder(<?php echo $user->id ?>, products);
+        if (setOrder(<?php echo $user->id ?>, products) == "")
+        {
+            var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
+            myModal.show();
+        }
     }
 
     function changeLocation(id)
