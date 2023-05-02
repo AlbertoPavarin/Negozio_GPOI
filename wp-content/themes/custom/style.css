@@ -197,7 +197,7 @@ div{
   font-family: 'Italianno';
 }
 
-.prod-price{
+.prod-price, .cart-price{
   color: #964B00;
 }
 
@@ -208,7 +208,7 @@ div{
   border-color: #964B00;
 }
 
-.cart-prod-btn{
+.cart-prod-btn, #shop-btn{
   background-color: #964B00 !important;
   color: #FFF !important;
 }
@@ -222,4 +222,20 @@ div{
   .info-cart{
     visibility: hidden;
   }
+}
+
+.delete-btn{
+  text-align: center;
+}
+
+.delete-btn:hover{
+  cursor: pointer;
+}
+
+.total-price-div {
+  background: rgba(217, 217, 217, 0.35);
+}
+
+.shipment-div{
+  background: #D9D9D9;
 }

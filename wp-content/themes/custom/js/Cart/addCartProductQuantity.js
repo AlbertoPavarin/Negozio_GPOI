@@ -15,13 +15,11 @@ function addCartProductQuantity(prod, user, price)
                 quantity: 1
             }),
         success: function (data) {
-            console.log(price);
             let quantity = document.querySelector(`#text-${prod}`);
             quantity.innerHTML = parseFloat(quantity.innerHTML) + 1;
 
             let pricePar = document.querySelector(`#price-${prod}`)
-            pricePar.innerHTML = (parseFloat(pricePar.innerHTML) + price).toFixed(2);
-            console.log(pricePar);
+            pricePar.innerHTML = (parseFloat(pricePar.innerHTML) + parseFloat(price)).toFixed(2);
         },
         error: function (error) {
             res = "400";

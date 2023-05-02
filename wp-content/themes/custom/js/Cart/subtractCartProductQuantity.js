@@ -18,8 +18,6 @@ function subtractCartProductQuantity(prod, user, price)
                     quantity: 1
                 }),
             success: function (data) {
-            
-                console.log("s");
                 quantity.innerHTML = quantity.innerHTML - 1 
                 let pricePar = document.querySelector(`#price-${prod}`)
                 pricePar.innerHTML = parseFloat(pricePar.innerHTML - price).toFixed(2);
