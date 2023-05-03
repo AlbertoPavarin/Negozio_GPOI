@@ -15,7 +15,7 @@ require_once('page.php');
         Prodotto non disponibile
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
       </div>
     </div>
   </div>
@@ -105,10 +105,10 @@ require_once('page.php');
                                     <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="cart-img-prod" alt="">
                                 </div>
                                 <div class="p-cont col-12 col-md-3 mt-4" onclick=changeLocation(${product.id})>
-                                    <a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
+                                    <a class="a-cat prod-name-cart" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
                                 </div>
-                                <div class="col-12 col-md-3 mt-4">
-                                    <span id="price-${product.id}">${product.total_price}</span>€
+                                <div class="col-12 col-md-3 mt-4 prod-price-cont">
+                                    <span id="price-${product.id}" class="">${product.total_price}</span>€
                                 </div>
                                 <div class="prod col-12 col-md-3 mt-4">
                                     <span id="minus-btn-${product.id}" class="minus-btn">-</span>

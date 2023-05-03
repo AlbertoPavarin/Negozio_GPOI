@@ -198,7 +198,7 @@ div{
 }
 
 .prod-price, .cart-price{
-  color: #964B00;
+  color: rgba(150, 75, 0, 0.65);
 }
 
 .quant-cont
@@ -208,8 +208,8 @@ div{
   border-color: #964B00;
 }
 
-.cart-prod-btn, #shop-btn{
-  background-color: #964B00 !important;
+.cart-prod-btn, #shop-btn, .btn-modal{
+  background: rgba(150, 75, 0, 0.85) !important;
   color: #FFF !important;
 }
 
@@ -238,4 +238,17 @@ div{
 
 .shipment-div{
   background: #D9D9D9;
+}
+
+.img-prod-voted{
+  width: 100px;
+  height: 100px;
+}
+
+.voted-div:hover, .product-container:hover{
+  cursor: pointer;
+}
+
+.prod-price-cont, .prod-name-cart{
+  color:rgba(150, 75, 0, 0.65) !important;
 }

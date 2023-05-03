@@ -19,7 +19,7 @@ if (empty($_GET["id"]))
         Prodotto già presente nel carrello
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
       </div>
     </div>
   </div>
@@ -37,7 +37,7 @@ if (empty($_GET["id"]))
         Prodotto inserito nel carrello
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
       </div>
     </div>
   </div>

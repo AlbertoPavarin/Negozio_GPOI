@@ -25,26 +25,25 @@ if (empty($_GET["id"]))
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-4 col-xl-4 col-12 order-sm-2 order-2 order-md-1 mt-5 most-vote">
-            <h5>I più votati</h5>
+            <h5>Il più votato</h5>
         </div>
         <div class="col-md-8 col-xl-8 col-12 order-sm-1 order-1 order-md-2">
             <div class="row prods-cont">
                 <script>
-                    for (let i = 0; i < 2; i++)
-                    {
-                        let votedDiv = document.createElement('div');
-                        votedDiv.innerHTML += `<div class="product-cont col-md-5 col-xl-5 col-12">
-                                                                              ${products[i].nome.toUpperCase()}
-                                                                          </div>
-                                                                          <div class="col-md-8 col-xl-8 col-12 container-img-prod">
-                                                                              <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod" alt="">
-                                                                              <hr>
-                                                                          </div>`;
-                        votedDiv.onclick = () => {
-                            location.href = `/Negozio_GPOI/prodotto?id=${products[i].id}`;
-                        }
-                        document.querySelector('.most-vote').appendChild(votedDiv);
+                    let votedDiv = document.createElement('div');
+                    votedDiv.classList = "voted-div"
+                    votedDiv.innerHTML += `<div class="col-md-5 col-xl-5 col-12 container-img-prod">
+                                                <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod-voted" alt="">
+                                            </div>
+                                            <div class="product-cont col-md-8 col-xl-8 col-12">
+                                                ${products[0].nome.toUpperCase()}
+                                                <hr>
+                                            </div>
+                                            `;
+                    votedDiv.onclick = () => {
+                        location.href = `/Negozio_GPOI/prodotto?id=${products[0].id}`;
                     }
+                    document.querySelector('.most-vote').appendChild(votedDiv);
                     products.forEach((product) => {
                         const catDiv = document.createElement('div');
                         catDiv.classList = "product-container col-xl-4 col-md-4";

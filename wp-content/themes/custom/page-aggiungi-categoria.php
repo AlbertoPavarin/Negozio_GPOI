@@ -21,7 +21,7 @@ endif;
         Errore nella creazione della categoria
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
       </div>
     </div>
   </div>
@@ -39,7 +39,7 @@ endif;
         Categoria aggiunta
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
       </div>
     </div>
   </div>

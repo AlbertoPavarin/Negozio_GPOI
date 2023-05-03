@@ -8,6 +8,7 @@ function getActiveProductsByCategory(id_cat) {
         async: false,
         success: (data) => {
             result = data;
+            console.log(data);
         },
         error: () => {
             result = "404";
