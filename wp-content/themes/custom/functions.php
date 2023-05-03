@@ -65,7 +65,7 @@ function login_redirect()
 		exit();
 	}
 }
-add_action('template_redirect', 'login_redirect');
+//add_action('template_redirect', 'login_redirect');
 
 /**
  * Nasconde l'admin bar

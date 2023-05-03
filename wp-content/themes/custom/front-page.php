@@ -18,7 +18,9 @@ $user = wp_get_current_user();
     <div class="row">
         <div class="col-md-12">
             <h1>ShOAP</h1>
-            <p class="">Ciao, <b><?php echo $user->display_name; ?></b>!</p>
+            <?php if(is_user_logged_in()) :?>
+                <p class="">Ciao, <b><?php echo $user->display_name; ?></b>!</p>
+            <?php endif; ?>
         </div>
     </div>
 

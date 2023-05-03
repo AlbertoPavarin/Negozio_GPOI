@@ -208,7 +208,7 @@ div{
   border-color: #964B00;
 }
 
-.cart-prod-btn, #shop-btn, .btn-modal{
+.cart-prod-btn, #shop-btn, .btn-modal, .logout-btn, .login-btn{
   background: rgba(150, 75, 0, 0.85) !important;
   color: #FFF !important;
 }

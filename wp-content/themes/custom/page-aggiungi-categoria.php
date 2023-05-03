@@ -5,7 +5,6 @@ if (!isAdmin()) :
     echo ('<script>
         location.href = "/Negozio_GPOI"
     </script>');
-    die();
 endif;
 ?>
 

@@ -46,10 +46,14 @@ if (empty($_GET["id"]))
                     document.querySelector('.most-vote').appendChild(votedDiv);
                     products.forEach((product) => {
                         const catDiv = document.createElement('div');
-                        catDiv.classList = "product-container col-xl-4 col-md-4";
+                        catDiv.classList = "product-container col-xl-4 col-md-4 mb-3";
                         catDiv.innerHTML = `<img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod-cat col-12" alt="">
                                             <a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
                                             <p>${product.price}€</p>`;
+                        if (product.quantity <= 0)
+                        {
+                            catDiv.innerHTML += "<p>Non disponibile</p>";
+                        }
                         catDiv.onclick = () => {
                             location.href = `/Negozio_GPOI/prodotto?id=${product.id}`;
                         };

@@ -12,7 +12,6 @@ function deleteUserCart(user) {
             }),
         success: function (data) {
             console.log(data);
-            location.reload();
         },
         error: function (error) {
             res = "400";

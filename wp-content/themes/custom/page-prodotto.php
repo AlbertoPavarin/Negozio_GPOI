@@ -59,7 +59,7 @@ if (empty($_GET["id"]))
           <div class="col-12 col-md-4 prod-price mt-4 mb-4"></div>
           <div class="row">
             <div class="col-12 col-md-4 prod-cart"></div>
-            <div class="col-12 col-md-8 cart-btn d-flex align-items-center ml-2 mt-3 mb-5"></div>
+              <div class="col-12 col-md-8 cart-btn d-flex align-items-center ml-2 mt-3 mb-5"></div>
           </div>
         </div>
     </div>
@@ -72,6 +72,7 @@ if (empty($_GET["id"]))
                                                           <h3>${product.nome}</h3>
                                                       </div>`;
     const descDiv = document.createElement('div');
+    descDiv.classList = "mt-4";
     descDiv.innerHTML = `${product.description}<hr>`;
     document.querySelector('.prod-container').appendChild(descDiv);
 
@@ -80,6 +81,7 @@ if (empty($_GET["id"]))
     document.querySelector('.prod-price').appendChild(priceDiv);
 
     const quantityDiv = document.createElement('div');
+    quantityDiv.classList = "mt-2";
     quantityDiv.innerHTML = `<h6>Quantità: ${product.quantity}</h6>`;
     document.querySelector('.prod-container').appendChild(quantityDiv);
 
@@ -89,24 +91,34 @@ if (empty($_GET["id"]))
                            <div id="text-${product.id}" class="col-4 d-flex justify-content-center align-items-center quant-cont">1</div>
                            <div id="plus-btn-${product.id}" class="col-4 pr-2 d-flex justify-content-center align-items-center plus-btn" onclick="addItem(${product.id}, ${product.quantity})">+</div>`;
     document.querySelector('.prod-cart').appendChild(amountDiv);
-
-    const cartBtn = document.createElement('button');
-    cartBtn.classList = "btn col-12 col-md-6 cart-prod-btn";
-    cartBtn.innerHTML = `Aggiungi al carrello`;
-    cartBtn.onclick = () => {
-        res = setCart(<?php echo $user->id ?>, product.id);
-        if (res == "400")
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-            console.log(myModal);
-            myModal.show();
+    <?php if(is_user_logged_in()): ?>
+      if (product.quantity > 0) {
+        const cartBtn = document.createElement('button');
+        cartBtn.classList = "btn col-12 col-md-6 cart-prod-btn";
+        cartBtn.innerHTML = `Aggiungi al carrello`;
+        cartBtn.onclick = () => {
+            res = setCart(<?php echo $user->id ?>, product.id);
+            if (res == "400")
+            {
+                var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
+                console.log(myModal);
+                myModal.show();
+            }
+            else
+            {
+                var myModal = new bootstrap.Modal(document.getElementById('successModal'));
+                console.log(myModal);
+                myModal.show();
+            }
         }
-        else
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-            console.log(myModal);
-            myModal.show();
-        }
-    }
-    document.querySelector('.cart-btn').appendChild(cartBtn);
+        document.querySelector('.cart-btn').appendChild(cartBtn);
+      }
+      else
+      {
+        const notAvDiv = document.createElement('div');
+        notAvDiv.classList = "mt-2";
+        notAvDiv.innerHTML = "Prodotto non disponibile";
+        document.querySelector('.cart-btn').appendChild(notAvDiv);
+      }
+    <?php endif; ?>
 </script>

@@ -1,6 +1,12 @@
 <?php
 require_once('page.php');
 
+if (!is_user_logged_in())
+{
+    echo ('<script>
+        location.href = "/Negozio_GPOI/login"
+    </script>');
+}
 ?>
 
 <!-- Error Modal -->
@@ -12,10 +18,28 @@ require_once('page.php');
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Prodotto non disponibile
+        Errore nell'ordinazione
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Successo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="returnToHome()"></button>
+      </div>
+      <div class="modal-body">
+        Ordinato
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal" onclick="returnToHome()">Chiudi</button>
       </div>
     </div>
   </div>
@@ -142,9 +166,16 @@ require_once('page.php');
     document.querySelector('.shipment-price').innerHTML = `${shipment}€`;
 
     document.querySelector('#shop-btn').onclick = () => {
-        if (setOrder(<?php echo $user->id ?>, products) == "")
+        let res = setOrder(<?php echo $user->id ?>, products);
+        console.log(res);
+        if (res == "" || res == "404")
         {
             var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
+            myModal.show();
+        }
+        else
+        {
+            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
             myModal.show();
         }
     }
@@ -152,6 +183,11 @@ require_once('page.php');
     function changeLocation(id)
     {
         location.href = `/Negozio_GPOI/prodotto?id=${id}`;
+    }
+
+    function returnToHome()
+    {
+        location.href = "/Negozio_GPOI";
     }
 
     function checkPrice()

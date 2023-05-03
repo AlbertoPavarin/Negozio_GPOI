@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="/Negozio_GPOI">
-            <img src="/Negozio_GPOI/wp-content/themes/custom/screenshot.png" class="img-cont" alt="">
-            <!--<h4>ShOAP</h4>-->
+            <img src="/Negozio_GPOI/wp-content/themes/custom/screenshot.png" class="img-cont" alt="ShOAP logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,14 +48,16 @@
                     </li>
                 <?php endif; ?>
             </ul>
-
-            <a class="navbar-brand">Ciao, <?php echo $user->display_name; ?>!</a>
+            <?php if (is_user_logged_in()) : ?>
+                <a class="navbar-brand">Ciao, <?php echo $user->display_name; ?>!</a>
+                <button class="btn logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>
+            <?php else: ?>
+                <button class="btn login-btn" onclick="window.location.href='<?php echo wp_login_url(); ?>'">Login</button>
+            <?php endif; ?>
 
             <?php if (isAdmin() == true) : ?>
                 <div class="manage-div"><a class="btn btn-primary admin-btn" href="/Negozio_GPOI/wp-admin" role="button">Amministrazione</a></div>
             <?php endif; ?>
-
-            <button class="btn btn-danger logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>
         </div>
     </div>
 </nav>

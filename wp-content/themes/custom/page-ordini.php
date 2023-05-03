@@ -1,5 +1,12 @@
 <?php
 require_once('page.php');
+
+if (!is_user_logged_in())
+{
+    echo ('<script>
+        location.href = "/Negozio_GPOI/login"
+    </script>');
+}
 ?>
 
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Order/getArchiveOrdersByUser.js"></script>
