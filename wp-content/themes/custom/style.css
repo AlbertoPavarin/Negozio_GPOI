@@ -243,6 +243,7 @@ div{
 .img-prod-voted{
   width: 100px;
   height: 80px;
+  margin-left: 0;
 }
 
 .voted-div:hover, .product-container:hover{
@@ -268,4 +269,17 @@ div{
 .input-cassa{
   background: rgba(217, 217, 217, 0.5) !important;
   border: 0 !important;
+}
+
+.product-cont-name{
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.voted-div{
+  margin-left: 0;
+}
+
+.vote-wr{
+  margin-left: 10px;
 }

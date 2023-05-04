@@ -25,21 +25,20 @@ if (empty($_GET["id"]))
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-4 col-xl-4 col-12 order-sm-2 order-2 order-md-1 mt-5 most-vote">
-            <h5>Il più votato</h5>
+            <h5 class="vote-wr">Il più votato</h5>
         </div>
         <div class="col-md-8 col-xl-8 col-12 order-sm-1 order-1 order-md-2">
             <div class="row prods-cont mt-5">
                 <script>
                     let votedDiv = document.createElement('div');
                     votedDiv.classList = "voted-div"
-                    votedDiv.innerHTML += `<div class="col-md-5 col-xl-5 col-12 container-img-prod mb-3">
+                    votedDiv.innerHTML += `<div class="col-md-5 col-xl-5 col-12 container-img-prod mb-3 mt-3">
                                                 <img src="/Negozio_GPOI/wp-content/themes/custom/assets/img/img_product/${products[0].img_name}" class="img-prod-voted" alt="">
                                             </div>
-                                            <div class="product-cont col-md-8 col-xl-8 col-12">
+                                            <div class="product-cont-name col-md-8 col-xl-8 col-12">
                                                 ${products[0].nome.toUpperCase()}
                                                 <hr>
-                                            </div>
-                                            `;
+                                            </div>`;
                     votedDiv.onclick = () => {
                         location.href = `/Negozio_GPOI/prodotto?id=${products[0].id}`;
                     }

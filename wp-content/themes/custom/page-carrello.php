@@ -114,7 +114,7 @@ if (!is_user_logged_in())
                                     </svg>  
                                 </div>
                                 <div class="p-cont col-12 col-md-2" onclick=changeLocation(${product.id})>
-                                    <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="cart-img-prod" alt="">
+                                    <img src="/Negozio_GPOI/wp-content/themes/custom/assets/img/img_product/${product.img_name}" class="cart-img-prod" alt="">
                                 </div>
                                 <div class="p-cont col-12 col-md-3 mt-4" onclick=changeLocation(${product.id})>
                                     <a class="a-cat prod-name-cart" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>

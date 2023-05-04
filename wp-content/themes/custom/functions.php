@@ -74,7 +74,7 @@ function hide_admin_bar()
 {
 	add_filter('show_admin_bar', '__return_false');
 }
-// add_action('after_setup_theme', 'hide_admin_bar');
+ add_action('after_setup_theme', 'hide_admin_bar');
 
 /**
  * Logout custom 
