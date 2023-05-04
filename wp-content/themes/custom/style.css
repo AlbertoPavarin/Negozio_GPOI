@@ -80,7 +80,7 @@ div{
 }
 
 .img-prod{
-    width: 300px;
+    width: 400px;
     height: 350px;
 }
 
@@ -256,4 +256,11 @@ div{
 .img-prod-cat{
   width: 100%;
   height: auto;
+}
+
+@media screen and (max-width: 1199px) {
+  .img-prod{
+    width: 100%;
+    height: auto;
+  }
 }
