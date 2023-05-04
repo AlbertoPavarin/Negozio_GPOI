@@ -28,12 +28,12 @@ if (empty($_GET["id"]))
             <h5>Il più votato</h5>
         </div>
         <div class="col-md-8 col-xl-8 col-12 order-sm-1 order-1 order-md-2">
-            <div class="row prods-cont">
+            <div class="row prods-cont mt-5">
                 <script>
                     let votedDiv = document.createElement('div');
                     votedDiv.classList = "voted-div"
-                    votedDiv.innerHTML += `<div class="col-md-5 col-xl-5 col-12 container-img-prod">
-                                                <img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod-voted" alt="">
+                    votedDiv.innerHTML += `<div class="col-md-5 col-xl-5 col-12 container-img-prod mb-3">
+                                                <img src="/Negozio_GPOI/wp-content/themes/custom/assets/img/img_product/${products[0].img_name}" class="img-prod-voted" alt="">
                                             </div>
                                             <div class="product-cont col-md-8 col-xl-8 col-12">
                                                 ${products[0].nome.toUpperCase()}
@@ -45,9 +45,10 @@ if (empty($_GET["id"]))
                     }
                     document.querySelector('.most-vote').appendChild(votedDiv);
                     products.forEach((product) => {
+                        console.log(product);
                         const catDiv = document.createElement('div');
                         catDiv.classList = "product-container col-xl-4 col-md-4 mb-3";
-                        catDiv.innerHTML = `<img src="https://bioapinatura.com/wp-content/uploads/2020/02/LAGO-DI-GARDA-LIMONE.jpg" class="img-prod-cat col-12" alt="">
+                        catDiv.innerHTML = `<img src="/Negozio_GPOI/wp-content/themes/custom/assets/img/img_product/${product.img_name}" class="img-prod-cat h-75 mb-3 col-12" alt="">
                                             <a class="a-cat" href="/Negozio_GPOI/prodotto?id=${product.id}">${product.nome}</a>
                                             <p>${product.price}€</p>`;
                         if (product.quantity <= 0)

@@ -45,7 +45,7 @@ $user = wp_get_current_user();
                 categories.forEach((category) => {
                     const catDiv = document.createElement('div');
                     catDiv.classList = "col-12 category-container mt-3 p-3";
-                    catDiv.innerHTML = `<a class="a-cat" href="Negozio_GPOI/catalogo?id=${category.id}">${category.description}</a>`;
+                    catDiv.innerHTML = `<a class="a-cat" href="Negozio_GPOI/catalogo?id=${category.id}">${category.name}</a>`;
                     document.querySelector('.cats-cont').appendChild(catDiv);
                 })
             </script>

@@ -28,7 +28,7 @@ class CategoryProduct
 
     public static function getActiveProductsByCategory($id_cat)
     {
-        $sql = "SELECT cp.category, p.id, p.nome, p.description, p.quantity, p.price
+        $sql = "SELECT cp.category, p.id, p.nome, p.description, p.quantity, p.price, p.img_name
                 FROM category_product cp
                 INNER JOIN product p ON p.id = cp.product
                 WHERE cp.category = " . self::$conn->real_escape_string($id_cat) . " AND p.active = 1;";

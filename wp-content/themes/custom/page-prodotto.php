@@ -38,6 +38,7 @@ if (empty($_GET["id"]))
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn btn-modal" data-bs-dismiss="modal" onclick="goToCart()">Vai al carrello</button>
       </div>
     </div>
   </div>
@@ -121,4 +122,8 @@ if (empty($_GET["id"]))
         document.querySelector('.cart-btn').appendChild(notAvDiv);
       }
     <?php endif; ?>
+
+    function goToCart() {
+      location.href = "/Negozio_GPOI/carrello";
+    }
 </script>

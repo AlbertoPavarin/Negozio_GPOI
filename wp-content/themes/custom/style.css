@@ -181,8 +181,8 @@ div{
 }
 
 .img-cont-cat{
-  width: 200px;
-  height: 200px;
+  width: 95px;
+  height: 72px;
 }
 
 .title-img{
@@ -242,7 +242,7 @@ div{
 
 .img-prod-voted{
   width: 100px;
-  height: 100px;
+  height: 80px;
 }
 
 .voted-div:hover, .product-container:hover{
@@ -251,4 +251,9 @@ div{
 
 .prod-price-cont, .prod-name-cart{
   color:rgba(150, 75, 0, 0.65) !important;
+}
+
+.img-prod-cat{
+  width: 100%;
+  height: auto;
 }
