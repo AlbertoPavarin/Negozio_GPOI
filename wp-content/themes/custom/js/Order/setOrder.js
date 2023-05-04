@@ -7,7 +7,7 @@
         ]
     }
 */
-function setOrder(user)
+function setOrder(user, via, cap, citta, prov)
 {
     cart = getUserCart(user);
     let products = [];
@@ -33,7 +33,11 @@ function setOrder(user)
             data: 
                JSON.stringify({
                     user: user,
-                    products: products
+                    products: products,
+                    city: citta, 
+                    province: prov,
+                    route: via,
+                    cap: cap
                 }),
             success: function (data) {
                 console.log(data);

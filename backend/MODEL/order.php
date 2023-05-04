@@ -46,16 +46,20 @@ class Order
         "products": [
             {"id": 1, "quantity": 2},
             {"id": 2, "quantity": 1}
-        ]
+        ],
+        "city": "Rovigo",
+        "province": "Ro",
+        "route": "via la",
+        "cap": "45100"
     }
     */
-    public static function setOrder($user)
+    public static function setOrder($user, $city, $province, $route, $cap)
     {
-        $sql = "INSERT INTO `order` (user, status)
-                VALUES (?, 1);";
+        $sql = "INSERT INTO `order` (user, status, city, province, route, cap)
+                VALUES (?, 1, ?, ?, ?, ?);";
 
         $stmt = self::$conn->prepare($sql);
-        $stmt->bind_param('i', $user);
+        $stmt->bind_param('issss', $user, $city, $province, $route, $cap);
         if ($stmt->execute())
             return $stmt;
         else 

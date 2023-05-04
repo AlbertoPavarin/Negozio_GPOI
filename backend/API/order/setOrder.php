@@ -7,14 +7,14 @@ header("Content-type: application/json; charset=UTF-8");
 
 $data = json_decode(file_get_contents('php://input'));
 
-if (empty($data->user) || empty($data->products)) {
+if (empty($data->user) || empty($data->products) || empty($data->city) || empty($data->province) || empty($data->route) || empty($data->cap)) {
     http_response_code(400);
     echo json_encode(["message" => "Fill every field"]);
     die();
 }
 
 $order = Order::getInstance();
-if ($res = $order::setOrder($data->user))
+if ($res = $order::setOrder($data->user, $data->city, $data->province, $data->route, $data->cap))
 {
     $prod_ord = ProductOrder::getInstance();
     $prod_ord::setProductOrder($data->products, $res->insert_id);

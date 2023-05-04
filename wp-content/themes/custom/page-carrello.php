@@ -27,30 +27,18 @@ if (!is_user_logged_in())
   </div>
 </div>
 
-<!-- Success Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="successModalLabel">Successo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="returnToHome()"></button>
-      </div>
-      <div class="modal-body">
-        Ordinato
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-modal" data-bs-dismiss="modal" onclick="returnToHome()">Chiudi</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/getUserCart.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/addCartProductQuantity.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/subtractCartProductQuantity.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Order/setOrder.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/deleteUserCart.js"></script>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Cart/deleteCartProduct.js"></script>
+
+<div class="mb-4">
+    <div class="col-12 title-img d-flex align-items-center justify-content-center">
+        <h2 class="title">Carello</h2>
+    </div>
+</div>
 
 <div class="container">
     <div class = "prods-cont">
@@ -166,18 +154,7 @@ if (!is_user_logged_in())
     document.querySelector('.shipment-price').innerHTML = `${shipment}€`;
 
     document.querySelector('#shop-btn').onclick = () => {
-        let res = setOrder(<?php echo $user->id ?>, products);
-        console.log(res);
-        if (res == "" || res == "404")
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-            myModal.show();
-        }
-        else
-        {
-            var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-            myModal.show();
-        }
+        location.href = "/Negozio_GPOI/acquista";
     }
 
     function changeLocation(id)
