@@ -1,4 +1,4 @@
-function setProduct(name, desc, price, quantity)
+function setProduct(name, desc, price, quantity, img)
 {
     let res = "";
     $.ajax({
@@ -12,7 +12,8 @@ function setProduct(name, desc, price, quantity)
                 name: name,
                 description: desc,
                 price: price, 
-                quantity: quantity
+                quantity: quantity,
+                img_name: img
             }),
         success: function (data) {
             res = data;

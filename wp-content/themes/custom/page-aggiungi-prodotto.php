@@ -33,13 +33,13 @@ endif;
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="successModalLabel">Successo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href = '/Negozio_GPOI'"></button>
       </div>
       <div class="modal-body">
         Prodotto aggiunto
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="location.href = '/Negozio_GPOI'">Close</button>
       </div>
     </div>
   </div>
@@ -56,24 +56,29 @@ endif;
 
                 <div class="justify-content-center insert-input">
                     <label for="name">Nome</label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <input type="text" required name="name" id="name" class="form-control">
                 </div>
 
                 <div class="justify-content-center insert-input mt-3">
                     <label for="description">Descrizione</label>
-                    <input type="text" name="description" id="description" class="form-control">
+                    <textarea type="text" required name="description" id="description" class="form-control"></textarea>
                 </div>
 
                 <div class="justify-content-center insert-input mt-3">
                     <label for="price">Prezzo</label>
-                    <input class="form-control" type="text" onkeypress="return validateNumber(event)" id="price" name="price">
-                </div><hr>
+                    <input class="form-control" required type="text" onkeypress="return validateNumber(event)" id="price" name="price">
+                </div>
 
                 <div class="justify-content-center insert-input mt-3">
                     <label for="quantity">Quantità</label>
-                    <input class="form-control" type="text" onkeypress="return validateNumber(event)" id="quantity" name="quantity">
-                </div><hr>
+                    <input class="form-control" required type="text" onkeypress="return validateNumber(event)" id="quantity" name="quantity">
+                </div>
 
+                <div class="justify-content-center insert-input mt-3">
+                    <label for="img">Immagine</label>
+                    <input accept="image/png, image/jpeg, image/jpg" type="file" required id="img" name="img">
+                </div>
+                <hr>
                 <p class="col-12">Categorie</p>
                 <div class="cats-cont"></div>
 
@@ -87,7 +92,7 @@ endif;
 <script>
     function validateNumber(event)
     {
-      if (event.charCode > 31 && (event.charCode < 49 || event.charCode > 57))
+      if (event.charCode > 31 && (event.charCode < 48 || event.charCode > 57))
         return false;
       else
         return true;
@@ -99,6 +104,8 @@ endif;
     let inputPrice = document.querySelector('#price');
 
     let inputQuantity = document.querySelector('#quantity');
+
+    let fileInput = document.querySelector('#img');
 
     let categories = getActiveCategories();
     
@@ -113,8 +120,8 @@ endif;
 
     document.querySelector('#add-prod').onclick = () => {
       let checks = document.querySelectorAll('input[name=prod-sel]:checked');
-
-      let response = setProduct(inputName.value, inputDescription.value, inputPrice.value, inputQuantity.value);
+      console.log(fileInput.files[0].name);
+      let response = setProduct(inputName.value, inputDescription.value, inputPrice.value, inputQuantity.value, fileInput.files[0].name);
       if (response == "400")
       {
           var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
@@ -128,7 +135,9 @@ endif;
         
           var myModal = new bootstrap.Modal(document.getElementById('successModal'));
           myModal.show();
-
       }
     };
 </script>
+
+<?php 
+?>

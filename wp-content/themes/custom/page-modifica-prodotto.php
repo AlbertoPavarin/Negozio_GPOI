@@ -67,7 +67,7 @@ endif;
 
                 <div class="justify-content-center insert-input mt-3">
                     <label for="description">Descrizione</label>
-                    <input type="text" name="description" id="description" class="form-control">
+                    <textarea type="text" name="description" id="description" class="form-control"></textarea>
                 </div>
 
                 <div class="justify-content-center insert-input mt-3">
@@ -85,7 +85,6 @@ endif;
 <script>
     function validateNumber(event)
     {
-      console.log('c');
       if (event.charCode > 31 && (event.charCode < 48 || event.charCode > 57))
         return false;
       else

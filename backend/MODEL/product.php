@@ -59,16 +59,17 @@ class Product
         "description": "Sapone per vetri",
         "quantity": 10,
         "price": 5,
-        "name": "Vetril"
+        "name": "Vetril",
+        "img_name": "sa"
     }*/
 
-    public static function setProduct($description, $quantity, $price, $name)
+    public static function setProduct($description, $quantity, $price, $name, $img_name)
     {
-        $sql = "INSERT INTO product (description, quantity, price, nome)
-                VALUES (?, ?, ?, ?);";
+        $sql = "INSERT INTO product (description, quantity, price, nome, img_name)
+                VALUES (?, ?, ?, ?, ?);";
 
         $stmt = self::$conn->prepare($sql);
-        $stmt->bind_param('sids', $description, $quantity, $price, $name);
+        $stmt->bind_param('sidss', $description, $quantity, $price, $name, $img_name);
         if ($stmt->execute())
             return $stmt;
         else

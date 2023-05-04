@@ -6,7 +6,7 @@ header("Content-type: application/json; charset=UTF-8");
 
 $data = json_decode(file_get_contents('php://input'));
 
-if (empty($data->name) || empty($data->description) || empty($data->price) || empty($data->quantity))
+if (empty($data->name) || empty($data->description) || empty($data->price) || empty($data->quantity) || empty($data->img_name))
 {
     http_response_code(400);
     echo json_encode(["message" => "Fill every field"]);
@@ -21,7 +21,7 @@ if ($data->quantity <= 0 || $data->price <= 0)
 
 $product = Product::getInstance();
 
-if ($res = $product->setProduct($data->description, $data->quantity, $data->price, $data->name))
+if ($res = $product->setProduct($data->description, $data->quantity, $data->price, $data->name, $data->img_name))
 {
     echo json_encode(array("Message" => "Product created", "product_id" => $res->insert_id, "Response" => true));
     die();
