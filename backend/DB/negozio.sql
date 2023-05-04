@@ -2,36 +2,20 @@ CREATE DATABASE shop_db;
 
 USE shop_db;
 
-CREATE TABLE `role` (
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	description NVARCHAR(32) NOT NULL
-);
-
-CREATE TABLE `user`(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-	name NVARCHAR(32) NOT NULL,
-	surname NVARCHAR(32) NOT NULL,
-	username NVARCHAR(16) NOT NULL,
-	email NVARCHAR(64) NOT NULL,
-	`password` NVARCHAR(255) NOT NULL,
-	active BOOLEAN DEFAULT 1 NOT NULL,
-	birth_date DATE NOT NULL,
-	`role` INT NOT NULL -- fk
-);
-
 CREATE TABLE product(
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	description nvarchar(64) not null,
+	description nvarchar(1024) not null,
 	quantity INT NOT NULL,
 	active BOOLEAN DEFAULT 1,
-	price DECIMAL NOT NULL,
-	nome NVARCHAR(16) NOT NULL
+	price DECIMAL(4,2) NOT NULL,
+	nome NVARCHAR(64) NOT NULL,
+	img_name NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE category(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	description NVARCHAR(64) NOT NULL,
-	name NVARCHAR(16) NOT NULL
+	name NVARCHAR(24) NOT NULL
 );
 
 CREATE TABLE category_product(
@@ -48,8 +32,12 @@ CREATE TABLE cart(
 CREATE TABLE `order`(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	date_order DATETIME DEFAULT NOW(),
-	`user` INT NOT NULL, -- fk
-	status INT NOT NULL -- fk
+	`user` INT NOT NULL,
+	status INT NOT NULL, -- fk
+	city NVARCHAR(32) NOT NULL,
+	province NVARCHAR(32) NOT NULL,
+	route NVARCHAR(64) NOT NULL,
+	cap NVARCHAR(5) NOT NULL
 );
 
 CREATE TABLE product_order (
@@ -63,8 +51,6 @@ CREATE TABLE status(
 	description nvarchar(16) NOT NULL
 );
 
-ALTER TABLE `user`
-ADD CONSTRAINT fk_user_role FOREIGN KEY (`role`) REFERENCES `role`(id);
 
 
 ALTER TABLE category_product
@@ -74,15 +60,10 @@ ALTER TABLE category_product
 ADD CONSTRAINT fk_product_c FOREIGN KEY (product) REFERENCES product(id);
 
 ALTER TABLE cart
-ADD CONSTRAINT fk_cart_user FOREIGN KEY (`user`) REFERENCES `user`(id);
-ALTER TABLE cart
 ADD CONSTRAINT fk_cart_prod FOREIGN KEY (product) REFERENCES product(id);
 
 ALTER TABLE `order`
 ADD CONSTRAINT fk_order_s FOREIGN KEY (status) REFERENCES status(id);
-
-ALTER TABLE `order`
-ADD CONSTRAINT fk_order_u FOREIGN KEY (`user`) REFERENCES `user`(id);
  
 ALTER TABLE product_order 
 ADD CONSTRAINT fk_product_o FOREIGN KEY (product) REFERENCES product(id);
