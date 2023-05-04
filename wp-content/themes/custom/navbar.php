@@ -49,7 +49,7 @@
                 <?php endif; ?>
             </ul>
             <?php if (is_user_logged_in()) : ?>
-                <a class="navbar-brand">Ciao, <?php echo $user->display_name; ?>!</a>
+                <a class="navbar-brand user-prof" href="/Negozio_GPOI/profilo">Ciao, <?php echo $user->display_name; ?>!</a>
                 <button class="btn logout-btn" onclick="window.location.href='<?php echo wp_logout_url(); ?>'">Logout</button>
             <?php else: ?>
                 <button class="btn login-btn" onclick="window.location.href='<?php echo wp_login_url(); ?>'">Login</button>

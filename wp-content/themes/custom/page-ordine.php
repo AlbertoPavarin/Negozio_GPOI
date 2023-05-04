@@ -1,6 +1,13 @@
 <?php
 require_once('page.php');
 
+if (!is_user_logged_in())
+{
+    echo ('<script>
+        location.href = "/Negozio_GPOI/login"
+    </script>');
+}
+
 if (empty($_GET["id"]))
 {
     die("Errore nel caricamento dell'ordine");

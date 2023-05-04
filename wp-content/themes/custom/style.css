@@ -283,3 +283,7 @@ div{
 .vote-wr{
   margin-left: 10px;
 }
+
+.user-prof:hover{
+  cursor: pointer;
+}

@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //handle error here
         }else{
             $user = get_user_by('id', $result);
+            echo ('<script>
+                  location.href = "' . wp_login_url() .'"
+                  </script>');
             //handle successful creation here
         }
     }

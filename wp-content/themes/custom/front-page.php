@@ -1,6 +1,15 @@
 <?php
 get_header();
 $user = wp_get_current_user();
+
+if (is_user_logged_in() && $user->user_status > 1)
+{   
+    wp_destroy_current_session();
+    echo ('<script>
+        location.href = "' . wp_login_url() . '"
+    </script>');
+}
+
 ?>
 <script type="text/javascript" src="/Negozio_GPOI/wp-content/themes/custom/js/Category/getActiveCategories.js"></script>
 

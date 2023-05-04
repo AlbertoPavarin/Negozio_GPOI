@@ -103,13 +103,11 @@ if (empty($_GET["id"]))
             if (res == "400")
             {
                 var myModal = new bootstrap.Modal(document.getElementById('errorModal'));
-                console.log(myModal);
                 myModal.show();
             }
             else
             {
                 var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-                console.log(myModal);
                 myModal.show();
             }
         }
